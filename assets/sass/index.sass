@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,700,900')
+
+html, body
+  font-family: 'Raleway', sans-serif
+  padding: 0
+  margin: auto
+  box-sizing: border-box
+
+.white-space
+  height: 1000px
+
+
+h1, h2, h3, h4, h5, p
+  color: #2C2F3F
+
+h1
+  font-weight: 900
+
+.subtitle
+  font-weight: 700
+  font-size: 30px
+  text-decoration: underline
+
+p
+  font-weight: 300
+  font-size: 18px
+
+.comment
+  font-weight: 300
+  font-size: 18px
+  text-align: center
+
+.videoWrapper
+  position: relative
+  padding-bottom: 56.25%
+  // 16:9
+  padding-top: 25px
+  height: 0
+
+.videoWrapper iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+
+hr
+  border: none
+  background-color: #DCDEEB
+  height: 2px
+
+
+header
+  .main-header
+    position: relative
+    width: 100%
+    height: 600px
+    background: #4597FF
+    z-index: 1
+    .header-text
+      .second-title, .title
+        margin: 0
+        color: white
+        text-align: center
+      .second-title
+        padding-top: 50px
+        font-weight: 100
+      .title
+        padding-top: 80px
+        font-weight: 900
+        font-size: 150px
+        margin-top: -120px
+
+    .canon-image
+      position: absolute
+      margin-top: -150px
+      left: 50%
+      transform: translate(-50%)
+      max-width: 700px
+
+
+  .shadow
+    width: 100%
+    height: 15px
+    background-color: #EBEBEB
+
+.hive-inator
+  position: absolute
+  left: 50%
+  z-index: 0
+  margin-top: -100px
+
+  .string
+    height: 200px
+    width: 10px
+    background: #876F0A
+    position: absolute
+
+  .ball
+    position: absolute
+    margin: 180px 0px 0px -15px
+    height: 40px
+    width: 40px
+    background: #EAEE5F
+    -moz-border-radius: 50px
+    -webkit-border-radius: 50px
+    border-radius: 50px
+
+
+#grid
+  position: relative
+  margin: 200px auto 0px auto
+  max-width: 700px
+  width: 90%
+
+  .content
+    width: 80%
+    max-width: 600px
+    margin: 0 auto
+
+    .content-image
+      width: auto
+      max-width: 100%
+      position: relative
+      left: 50%
+      transform: translate(-50%)
+
+    .header-circle
+      position: absolute
+      height: 40px
+      width: 40px
+      background: #F2F2F2
+      -moz-border-radius: 50px
+      -webkit-border-radius: 50px
+      border-radius: 50px
+      margin-left: -85px
+
+    .header-space
+      height: 40px
+
+  .guider
+    width: 10px
+    height: 100%
+    background-color: #F2F2F2
+    position: absolute
+
+  p
+    position: relative
+
+
+// ---------- MEDIA QUERIES ---------- //
+
+// MEDIA QUERY FOR HEADER
+@media(max-width: 950px)
+  header
+    .main-header
+      height: 550px
+      .header-text
+        .second-title
+          font-size: 25px
+          padding-top: 40px
+        .title
+          padding-top: 90px
+          font-size: 80px
+      .canon-image
+        width: 90%
+        max-width: 600px
+        margin-top: -30px
+
+// MEDIA QUERY FOR MAIN CONTENT
+@media(max-width: 800px)
+  #grid
+    width: 100%
+    .content
+      width: 90%
+      .header-circle
+        display: none
+    .guider
+      display: none

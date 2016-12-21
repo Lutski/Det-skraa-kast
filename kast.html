@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 800px;
+  height: 400px;
+  position: relative;
+  background: blue;
+}
+</style>
+<body>
+<p>
+<button onclick="execute()">Fire Cannon</button>
+<button onclick="customTarget()">New X Coordinate</button>
+
+</p>
+
+<div id ="container"></div>
+<IMG STYLE="position:absolute; TOP:340px; LEFT:85px; WIDTH:50px; HEIGHT:50px" SRC="canonball.png" id = "projectile">
+
+<script>
+var running = null;
+var targetX = 349;
+function customTarget(){
+  targetX = prompt("Please enter the new X coordinate");
+  if (targetX <= 149)targetX = 150;
+}
+function execute() {
+  //Tjekker om den allerede kører
+  if (!running){
+  //Laver variabler
+  var projectile = document.getElementById("projectile");
+  var x = 76;
+  var y = 286;
+  projectile.style.top = y - 54;
+  projectile.style.left = x - 9;
+  running = this;
+  var angleToTarget;
+
+  //Starter et loop
+  var tick = setInterval(runTick, 5);
+  function runTick() {
+    //Regner vinklen ud
+      calculateAngle();
+      //Tilføjer cos og sin af vinklen til x og y
+      x += Math.cos(angleToTarget);
+      y += Math.sin(angleToTarget);
+      updatePosition();
+  }
+}
+//Den her funktion bliver kaldt for at opdatere projektilets position.
+  function updatePosition(){
+    projectile.style.top = y + 54 + 'px';
+    projectile.style.left = x + 9 + 'px';
+    //Tjekker om projektilet rammer væggen
+    if (y >= 349 || y <= 0 || x >= 749)wallCollision();
+  }
+//Den her funktion bliver kaldt når projektilet rammer en væg
+  function wallCollision(){
+    clearInterval(tick);
+    running = null;
+  }
+//Udregner vinklen fra projektilets position til et bestemt slutpunkt.
+  function calculateAngle(){
+    var x1 = x;
+    var y1 = y;
+    var x2 = targetX;
+    var y2 = 349;
+    var dx = x1 - x2;
+    var dy = y1 - y2;
+    var a = Math.sqrt(dx * dx+ dy * dx);
+    angleToTarget = Math.cos((a * a + dx * dx - dy * dy) / (2*a*dx)) * 10;
+  }
+}
+</script>
+<!--Cannon picture -->
+<IMG STYLE="position:absolute; TOP:357px; LEFT:10px; WIDTH:100px; HEIGHT:100px" SRC="canon.png">
+
+</body>
+</html>
